@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insurance Cost Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4e73df, #1cc88a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4e73df;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2e59d9;
+        }
+
+        .result {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: green;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>🏥 Insurance Cost Predictor</h2>
+
+    <form action="/predict" method="post">
+
+        <input type="number" name="age" placeholder="Age" required>
+
+        <input type="number" step="0.1" name="bmi" placeholder="BMI" required>
+
+        <input type="number" name="children" placeholder="Number of Children" required>
+
+        <label>Sex</label>
+        <select name="sex">
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+
+        <label>Smoker</label>
+        <select name="smoker">
+            <option>No</option>
+            <option>Yes</option>
+        </select>
+
+        <label>Region</label>
+        <select name="region">
+            <option>Northeast</option>
+            <option>Northwest</option>
+            <option>Southeast</option>
+            <option>Southwest</option>
+        </select>
+
+        <button type="submit">Predict Cost</button>
+    </form>
+
+    <div class="result">
+        {{ prediction_text }}
+    </div>
+
+</div>
+
+</body>
+</html>
